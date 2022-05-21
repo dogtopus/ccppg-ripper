@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "ccppg_ripper"
+version = "0.1.0"
+description = "Rips eBooks from CCPPG website."
+authors = ["dogtopus <dogtopus@users.noreply.github.com>"]
+license = "UNLICENSED"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+beautifulsoup4 = "^4.11.1"
+lxml = "^4.8.0"
+MechanicalSoup = "^1.1.0"
+obsolete-cryptography = {git = "https://github.com/dogtopus/obsolete-cryptography"}
+python-dateutil = "^2.8.2"
+pikepdf = "^5.1.2"
+tqdm = "^4.64.0"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.950"
+pylint = "^2.13.8"
+rope = "^1.0.0"
+types-beautifulsoup4 = "^4.10.20"
+ipython = "^8.3.0"
+lxml-stubs = "^0.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+secondary = true
+
+[tool.poetry.scripts]
+catalog-downloader = "ccppg_ripper.cli:catalog_downloader"
+metadata-downloader = "ccppg_ripper.cli:metadata_downloader"
+decrypt-object = "ccppg_ripper.cli:decrypt_object"
+book-converter = "ccppg_ripper.cli:book_converter"
+decrypt-access-code = "ccppg_ripper.cli:decrypt_access_code"
